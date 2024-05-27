@@ -5,7 +5,7 @@ const  person = require('./person.js');
 const menu =  require('./menu.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()) // req.body
-
+require('dotenv').config()
 app.get('/',(req,res)=>{
     res.send('Hello world') 
 })
@@ -35,7 +35,7 @@ app.get('/Menu',async(req,res)=>{
 
 const personRoutes = require("./routes/personRoutes.js")
 app.use('/person',personRoutes);
-
-app.listen(3000,()=>{
+const port = process.env.PORT || 3000
+app.listen(port,()=>{
     console.log('server is running at port:',3000)
 })

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
+//URI = "mongodb+srv://avisek338:Babla%40123@cluster0.7bjqdcv.mongodb.net/"
 
-URI = "mongodb+srv://avisek338:Babla%40123@cluster0.7bjqdcv.mongodb.net/"
-
-mongoose.connect(URI)
+mongoose.connect(process.env.URL)
 const db = mongoose.connection
 db.on('connected',()=>{
     console.log("Connected to mongoDB server");

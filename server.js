@@ -4,6 +4,7 @@ const db = require('./db.js');
 const  person = require('./person.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()) // req.body
+require('dotenv').config()
 
 app.get("/",(req,res)=>{
   res.send("Well come to my page")
@@ -42,6 +43,7 @@ app.get('/Person/:workType',async(req,res)=>{
        res.status(500).json({error:'Invalid server error'})
     }
 })
+const port = process.env.PORT || 3000
 app.listen(3000,()=>{
     console.log("server is running at port: ",3000);
 })
